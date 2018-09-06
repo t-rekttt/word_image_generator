@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from docx import Document
+from docx.shared import RGBColor, Pt, Inches
+from PIL import Image
+
+img = Image.open('./resized1.jpg')
+width, height = img.size
+
+pi = open('pi.txt').read()
+
+document = Document()
+for section in document.sections:
+  section.page_width = Inches(11.69)
+  section.page_height = Inches(16.54)
+styles = document.styles['Normal']
+styles.font.size = Pt(1.5)
+styles.font.name = 'Arial Black'
+paragraph_format = styles.paragraph_format
+paragraph_format.line_spacing = Pt(1)
+paragraph_format.space_before = Pt(0)
+paragraph_format.space_after = Pt(0)
+
+for j in range(height):
+  p = document.add_paragraph()
+  for i in range(width):
+    r, g, b = img.getpixel((i, j))
+    run = p.add_run(
+      # unicode('♥', 'utf-8')
+      str(pi[i+j*width])
+    )
+    run.font.color.rgb = RGBColor(r, g, b)
+    # run.font.size = Pt(1.5)
+document.save('demo2.docx')
