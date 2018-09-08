@@ -5,10 +5,14 @@ from docx import Document
 from docx.shared import RGBColor, Pt, Inches
 from PIL import Image
 
-img = Image.open('./resized1.jpg')
-width, height = img.size
+image_path = '<path_to_your_image_file>'
+text_path = '<path_to_your_text_file>'
+output_path '<output_path.docx>'
 
-pi = open('pi.txt').read()
+img = Image.open(image_path)
+text = open(text_path).read()
+
+width, height = img.size
 
 document = Document()
 for section in document.sections:
@@ -27,9 +31,8 @@ for j in range(height):
   for i in range(width):
     r, g, b = img.getpixel((i, j))
     run = p.add_run(
-      # unicode('♥', 'utf-8')
-      str(pi[i+j*width])
+      str(text[(i+j*width) % len(text)])
     )
     run.font.color.rgb = RGBColor(r, g, b)
-    # run.font.size = Pt(1.5)
-document.save('demo2.docx')
+    
+document.save(output_path)
