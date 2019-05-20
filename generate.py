@@ -5,7 +5,6 @@ from docx import Document
 from docx.shared import RGBColor, Pt, Inches
 from PIL import Image
 from progressbar import progressbar
-import time
 
 image_path = '<path_to_your_image_file>'
 text_path = '<path_to_your_text_file>'
