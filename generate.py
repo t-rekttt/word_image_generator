@@ -7,7 +7,7 @@ from PIL import Image
 
 image_path = '<path_to_your_image_file>'
 text_path = '<path_to_your_text_file>'
-output_path '<output_path.docx>'
+output_path = '<output_path.docx>'
 
 img = Image.open(image_path)
 text = open(text_path).read()
