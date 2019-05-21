@@ -11,7 +11,7 @@
 2. Mở cmd/terminal và cd vào thư mục source code
 3. Chạy `pip install -r requirements.txt`, nếu máy bạn có 2 bản Python thì là `pip3 install -r requirements.txt`
 4. Đặt file ảnh và file text vào thư mục source code
-5. Sửa 3 dòng sau:
+5. Sửa 3 dòng sau (tất cả giá trị thay vào giữa cặp dấu ' '):
 - image_path: Đường dẫn tới file ảnh
 - text_path: Đường dẫn tới file text
 - output_path: Đường dẫn tới file docx output
